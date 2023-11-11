@@ -1,0 +1,66 @@
+openapi: 3.1.0
+info:
+  title: EMM News Brief API
+  version: 1.0.0
+paths:
+  /constructUrl:
+    get:
+      summary: Constructs a URL for EMM News Brief searches
+      parameters:
+        - in: query
+          name: language
+          schema:
+            type: string
+        - in: query
+          name: exclude_terms
+          schema:
+            type: array
+            items:
+              type: string
+        - in: query
+          name: include_terms
+          schema:
+            type: array
+            items:
+              type: string
+        - in: query
+          name: exact_phrase
+          schema:
+            type: string
+        - in: query
+          name: at_least_terms
+          schema:
+            type: string
+        - in: query
+          name: date_from
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successfully constructed URL
+          content:
+            text/plain:
+              schema:
+                type: string
+  /fetchRss:
+    get:
+      summary: Fetches and parses RSS feed data from a given URL
+      parameters:
+        - in: query
+          name: url
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successfully fetched RSS data
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  title:
+                    type: string
+                  link:
+                    type: string
+                  published:
+                    type: string
