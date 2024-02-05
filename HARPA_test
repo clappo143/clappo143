@@ -1,24 +1,90 @@
-{
-  "id": 4,
-  "category": "Commands",
-  "title": "Creating and Using HARPA AI Commands",
-  "description": "Detailed guide on creating custom HARPA AI commands for enhancing web automation and interaction. Learn to format commands in YAML, enabling HARPA AI to perform complex web tasks with simple triggers.",
-  "tags": ["Commands", "Customization", "YAML"],
-  "details": [
+[
     {
-      "step": 1,
-      "instruction": "Understanding Command Syntax",
-      "example": "/commandName - Triggers a specific action or workflow within HARPA AI."
+        "id": 1,
+        "category": "Introduction",
+        "title": "Getting Started with HARPA AI",
+        "description": "Overview of HARPA AI, including product use cases and features.",
+        "tags": [
+            "Getting Started",
+            "Overview"
+        ]
     },
     {
-      "step": 2,
-      "instruction": "Creating a Custom Command",
-      "example": "Navigate to the HARPA AI dashboard, select 'Custom Commands', and click on 'Create New Command'."
+        "id": 2,
+        "category": "Setup",
+        "title": "Setting up HARPA AI",
+        "description": "Instructions for setting up an AI assistant with a ChatGPT, Claude AI, or Google Bard account and a Chromium-based browser.",
+        "tags": [
+            "Setup",
+            "Installation"
+        ]
     },
     {
-      "step": 3,
-      "instruction": "Formatting Commands in YAML",
-      "example": "YAML Example for a Custom Command:\n\n```yaml\n- command: '/customCommandName'\n  description: 'This custom command does something special.'\n  actions:\n    - action: 'navigate'\n      parameters:\n        url: 'https://example.com'\n    - action: 'extractData'\n      parameters:\n        dataType: 'price'\n```\n\nThis YAML snippet defines a custom command named '/customCommandName' that navigates to a URL and extracts price information."
+        "id": 3,
+        "category": "LLM Connections",
+        "title": "Supported LLM connections",
+        "description": "Information on connecting HARPA AI with various language models like GPT-3.5, GPT-4, OpenAI API, Claude AI, Google Bard, and others.",
+        "tags": [
+            "LLM",
+            "Integration"
+        ]
+    },
+    {
+        "id": 4,
+        "category": "Commands",
+        "title": "Creating and Using HARPA AI Commands",
+        "description": "Detailed guide on creating custom HARPA AI commands for enhancing web automation and interaction. Learn to format commands in YAML, enabling HARPA AI to perform complex web tasks with simple triggers.",
+        "tags": [
+            "Commands",
+            "Customization",
+            "YAML"
+        ],
+        "details": [
+            {
+                "step": 1,
+                "instruction": "Understanding Command Syntax",
+                "example": "/commandName - Triggers a specific action or workflow within HARPA AI."
+            },
+            {
+                "step": 2,
+                "instruction": "Creating a Custom Command",
+                "example": "Navigate to the HARPA AI dashboard, select 'Custom Commands', and click on 'Create New Command'."
+            },
+            {
+                "step": 3,
+                "instruction": "Formatting Commands in YAML",
+                "example": "YAML Example for a Custom Command:\n\n```yaml\n- command: '/customCommandName'\n  description: 'This custom command does something special.'\n  actions:\n    - action: 'navigate'\n      parameters:\n        url: 'https://example.com'\n    - action: 'extractData'\n      parameters:\n        dataType: 'price'\n```\n\nThis YAML snippet defines a custom command named '/customCommandName' that navigates to a URL and extracts price information."
+            }
+        ]
+    },
+    {
+        "id": 5,
+        "category": "AI Features",
+        "title": "AI features overview",
+        "description": "Capabilities of HARPA AI as an AI copilot for Chrome, including content generation and data extraction.",
+        "tags": [
+            "AI Features",
+            "Capabilities"
+        ]
+    },
+    {
+        "id": 6,
+        "category": "Automation",
+        "title": "Automation features overview",
+        "description": "Details on HARPA AI's automation engine for creating reusable AI automations and monitoring website updates.",
+        "tags": [
+            "Automation",
+            "Monitoring"
+        ]
+    },
+    {
+        "id": 7,
+        "category": "Limitations",
+        "title": "Limitations & Power Messages",
+        "description": "Information on plan limitations and power messages, including rate limits on the Free plan.",
+        "tags": [
+            "Limitations",
+            "Plans"
+        ]
     }
-  ]
-}
+]
