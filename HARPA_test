@@ -1,0 +1,24 @@
+{
+  "id": 4,
+  "category": "Commands",
+  "title": "Creating and Using HARPA AI Commands",
+  "description": "Detailed guide on creating custom HARPA AI commands for enhancing web automation and interaction. Learn to format commands in YAML, enabling HARPA AI to perform complex web tasks with simple triggers.",
+  "tags": ["Commands", "Customization", "YAML"],
+  "details": [
+    {
+      "step": 1,
+      "instruction": "Understanding Command Syntax",
+      "example": "/commandName - Triggers a specific action or workflow within HARPA AI."
+    },
+    {
+      "step": 2,
+      "instruction": "Creating a Custom Command",
+      "example": "Navigate to the HARPA AI dashboard, select 'Custom Commands', and click on 'Create New Command'."
+    },
+    {
+      "step": 3,
+      "instruction": "Formatting Commands in YAML",
+      "example": "YAML Example for a Custom Command:\n\n```yaml\n- command: '/customCommandName'\n  description: 'This custom command does something special.'\n  actions:\n    - action: 'navigate'\n      parameters:\n        url: 'https://example.com'\n    - action: 'extractData'\n      parameters:\n        dataType: 'price'\n```\n\nThis YAML snippet defines a custom command named '/customCommandName' that navigates to a URL and extracts price information."
+    }
+  ]
+}
