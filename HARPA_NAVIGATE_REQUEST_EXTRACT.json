@@ -1,0 +1,119 @@
+{
+  "HARPA_AI_Advanced_Functionality": {
+    "Documentation": [
+      {
+        "id": "navigate_command",
+        "category": "Commands",
+        "tags": ["navigate", "url", "refresh", "parameterized navigation"],
+        "details": {
+          "description": "Navigates the current tab to a specified URL or refreshes the page if the URL is empty.",
+          "syntax": {
+            "full_version": "- type: navigate\n  url: 'https://google.com'",
+            "short_version": "- navigate: 'https://google.com'",
+            "missing_protocol": "- navigate: 'google.com'",
+            "relative_path": "- navigate: '/search'",
+            "reload_page": "- navigate: ''"
+          },
+          "examples": {
+            "website_summary": {
+              "description": "Navigate to a website and summarize its content.",
+              "chatml_declaration": "- type: navigate\n  url: https://www.washingtonpost.com/business/technology/\n  waitForIdle: true\n- type: gpt\n  prompt: 'Please analyze the data...'"
+            },
+            "parameterized_search": {
+              "description": "Conduct a Google search using a parameterized query.",
+              "chatml_declaration": "- type: ask\n  message: 'What would you like me to Google for you?'\n  param: p1\n  default: ''\n- type: navigate\n  url: 'google.com/search?q={{p1}}'\n  waitForIdle: true"
+            }
+          }
+        }
+      },
+      {
+        "id": "wait_command",
+        "category": "Commands",
+        "tags": ["wait", "delay", "loading", "synchronization"],
+        "details": {
+          "description": "Pauses the execution for a specified condition or amount of time, ensuring synchronization with page events or elements.",
+          "syntax": {
+            "wait_for_idle": "- type: wait\n  for: idle\n  timeout: 15000",
+            "custom_delay": "- type: wait\n  for: custom-delay\n  delay: 1000",
+            "random_delay": "- type: wait\n  for: random-delay\n  minDelay: 500\n  maxDelay: 3000",
+            "text_appearance": "- type: wait\n  for: text-to-appear\n  text: 'Login'\n  timeout: 15000",
+            "text_disappearance": "- type: wait\n  for: text-to-disappear\n  text: 'Loading'\n  timeout: 15000",
+            "element_appearance": "- type: wait\n  for: element-to-appear\n  selectorType: ai\n  selector: [{ '$tag': 'H1' }]\n  timeout: 15000",
+            "element_disappearance": "- type: wait\n  for: element-to-disappear\n  selectorType: ai\n  selector: [{ '$tag': 'H1' }]\n  timeout: 15000",
+            "js_function_resolution": "- type: wait\n  for: js-function\n  code: 'return document.querySelector(\\'h1\\')'\n  timeout: 15000"
+          }
+        }
+      },
+      {
+        "id": "request_step",
+        "category": "Commands",
+        "tags": ["webhook", "api", "http", "zapier", "make", "ifttt", "discord", "telegram"],
+        "details": {
+          "description": "The REQUEST step is used to perform HTTP GET / POST requests to specified URLs, often used to send data to webhooks or APIs, and to fetch web page HTML content.",
+          "usage": "Commonly triggers Zapier or Make.com for IFTTT chains, or sends data to bots and APIs. Supports parameter substitution in the URL, body, and headers. The response is captured in a parameter for subsequent use.",
+          "response_handling": "Use the SAY step to print out the response parameter and inspect the data returned by the request.",
+          "test_tip": "Test webhook data transfer using webhook.site.",
+          "chatml_declaration": {
+            "type": "request",
+            "url": "https://webhook.site/unique-id",
+            "method": "post",
+            "headers": {
+              "Authorization": "Bearer token"
+            },
+            "body": {
+              "url": "{{url}}",
+              "data": "{{gpt}}"
+            },
+            "auth": {
+              "enabled": true,
+              "username": "username",
+              "password": "password"
+            },
+            "param": "response"
+          }
+        }
+      },
+      {
+        "id": "extract_step",
+        "category": "Commands",
+        "tags": ["extract", "data", "selectors", "ai_element_selectors", "web_scraping"],
+        "details": {
+          "description": "The EXTRACT step retrieves information from web elements using AI Element Selectors. It's versatile and can be used to scrape various types of data from web pages.",
+          "use_cases": "Retrieve data such as social media followers count, post messages, product prices, or article outlines.",
+          "data_storage": "The extracted data is stored in the specified parameter, with a default fallback if no matching selector is found.",
+          "selector_customization": "Selectors can be customized manually or with the aid of a 'Grab' button.",
+          "chatml_declaration": {
+            "type": "extract",
+            "selectorType": "ai",
+            "selector": [
+              {
+                "$matches": [
+                  {"$tag": "H1"},
+                  {"$role": "heading"},
+                  {"$class": "PostContent__title"},
+                  {"$style": "Poppins:48px:600:normal"},
+                  {"$content": "Extract & Content Steps"},
+                  {"$class": "PostContent__header", "traverse": "1"},
+                  {"$class": "PostContent__content", "traverse": "0:1"},
+                  {"$class": "PostContent", "traverse": "1:0:1"},
+                  {"$class": "Page__content", "traverse": "0:1:0:1"},
+                  {"$class": "Page", "traverse": "0:0:1:0:1"},
+                  {"$anchor": "CONTENTS", "shift": "79:-132"},
+                  {"$text": "CONTENTS", "traverse": "-3:0:1"},
+                  {"$anchor": "HARPA.AI", "shift": "77:150"},
+                  {"$text": "HARPA.AI", "traverse": "-3:1:0:1"},
+                  {"$anchor": "Overview", "shift": "67:-184"},
+                  {"$text": "Overview", "traverse": "-4:0:1"}
+                ],
+                "min": 5
+              },
+              {"$size": 1}
+            ],
+            "param": "extractedData",
+            "default": "No data found"
+          }
+        }
+      }
+    ]
+  }
+}
