@@ -1,0 +1,108 @@
+{
+    "HARPA_AI_Advanced_Functionality": {
+        "Custom_Command_Creation": {
+            "Example": {
+                "title": "Advanced Command Example",
+                "description": "An example of a complex HARPA AI command.",
+                "category": "User"
+            },
+            "steps": [
+                {
+                    "type": "navigate",
+                    "url": "https://example.com",
+                    "meta": {
+                        "waitForIdle": true
+                    }
+                }
+            ]
+        },
+        "Parameter_Management": {
+            "Predefined_Parameters_Usage": {
+                "description": "Predefined parameters are automatically injected into prompts to provide dynamic content from the web page context.",
+                "list": [
+                    "{{page}}",
+                    "{{selection}}",
+                    "{{title}}",
+                    "{{desc}}",
+                    "{{url}}",
+                    "{{domain}}",
+                    "{{language}}",
+                    "{{transcript}}",
+                    "{{transcriptPlain}}",
+                    "{{message x}}",
+                    "{{serp term}}",
+                    "{{gpt}}"
+                ],
+                "examples": {
+                    "page_options": [
+                        "{{page url}}",
+                        "{{page query}}",
+                        "{{page limit=500}}"
+                    ],
+                    "global_parameters": [
+                        "{{g.p1}}",
+                        "{{g.email}}"
+                    ],
+                    "dot_notation": [
+                        "{{users.0.name.toUpperCase}}"
+                    ]
+                }
+            },
+            "Custom_Parameters_Creation": {
+                "description": "Custom parameters allow for dynamic content to be injected into commands.",
+                "example": {
+                    "calc_set": {
+                        "type": "calc",
+                        "do": "set",
+                        "param": "p1",
+                        "expression": "Extracted Data"
+                    }
+                }
+            }
+        },
+        "Complex_Automation_Steps": {
+            "SAY_ASK_GPT": [
+                {
+                    "id": "say_step",
+                    "description": "The SAY step is used to send a formatted message to the chat. It supports markdown syntax for message enhancement.",
+                    "usage": "To provide instructions, reminders, or echo parameter values."
+                },
+                {
+                    "id": "ask_step",
+                    "description": "The ASK step prompts the user for input, stores the response as a parameter, and allows for dialog customization.",
+                    "usage": "To gather input from the user that can be referenced in subsequent steps."
+                },
+                {
+                    "id": "gpt_step",
+                    "description": "The GPT step sends a prompt to a large language model and stores the response as a parameter, which can be referenced in other steps.",
+                    "usage": "To generate content, provide information, or continue a conversation flow based on user input."
+                }
+            ],
+            "NAVIGATE": {
+                "description": "Navigates to a specified URL and waits for the page to become idle before proceeding with further commands."
+            }
+        },
+        "Troubleshooting": {
+            "ChatML_Snippet_Debugging_Output": {
+                "say": "The command encountered an error with parameter: {{errorParam}}"
+            }
+        },
+        "Building_Sophisticated_Use_Cases": {
+            "Advanced_Use_Case_Implementation": {
+                "Sample_Advanced_Use_Case": {
+                    "meta": {
+                        "title": "Data Aggregation and Reporting",
+                        "description": "Aggregates data from various sources and compiles a report.",
+                        "category": "Data Analysis"
+                    },
+                    "steps": []
+                },
+                "Modular_Command_Structure_with_Global_Parameters": {}
+            }
+        },
+        "Documentation": []
+    },
+    "HARPA_AI_Conversation_Flow": {
+        "Documentation": []
+    }
+}
